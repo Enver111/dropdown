@@ -1,0 +1,20 @@
+.elem {
+  border: 2px solid #c1c1c1;
+  border-radius: 6px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  left: 360px;
+  top: 14px;
+  box-shadow: none;
+  transition: all 0.2s;
+}
+.elem.checked {
+  border: 2px solid #0049d9;
+  background-color: #005ffd;
+  background-image: url(../../img/check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}

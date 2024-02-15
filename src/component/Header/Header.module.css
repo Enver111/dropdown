@@ -1,0 +1,105 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+.label {
+  margin-bottom: 4px;
+}
+.head {
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 30px;
+  max-width: 390px;
+  height: 40px;
+  border: 1px solid #c1c1c1;
+  border-radius: 10px;
+  box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.1);
+  background: white;
+  position: relative;
+  display: flex;
+}
+.arrow {
+  position: absolute;
+  top: 12px;
+  left: 372px;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+.arrow.active {
+  transition: 0.5s all;
+  transform: rotate(180deg);
+}
+.addLang {
+  border: none;
+  background-color: #f4f4f4;
+  height: 24px;
+  margin: 7px 4px 9px 0px;
+  border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in-out;
+}
+.addLang-remove {
+  animation: fadeOut 0.3s ease-in-out;
+}
+
+.langText {
+  text-align: center;
+  font-size: 12px;
+  line-height: 10px;
+  margin: 6px 0 6px 12px;
+  overflow: hidden;
+}
+.cross {
+  width: 7.5px;
+  height: 7.5px;
+  margin: 8.25px 14.25px 8.25px 10.25px;
+  cursor: pointer;
+}
+
+.info {
+  transition: 0.5s all;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.1);
+  background: white;
+  margin-top: 8px;
+}
+.info.hidden {
+  transition: 0.5s all;
+  opacity: 0;
+}
+
+.search {
+  margin: 16px 16px 0 16px;
+  width: 332px;
+  height: 40px;
+  padding-left: 36px;
+  font-size: 16px;
+  color: black;
+  background: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.50006 1C9.53765 1 12.0001 3.46256 12.0001 6.50029C12.0001 7.74868 11.5842 8.89993 10.8835 9.82304L14.7791 13.7233C15.0718 14.0164 15.0715 14.4913 14.7785 14.784C14.4854 15.0767 14.0105 15.0764 13.7178 14.7834L9.82266 10.8839C8.89959 11.5847 7.74839 12.0006 6.50006 12.0006C3.46246 12.0006 1 9.53802 1 6.50029C1 3.46256 3.46246 1 6.50006 1ZM6.50006 2.5C4.2909 2.5 2.5 4.29098 2.5 6.50029C2.5 8.70961 4.2909 10.5006 6.50006 10.5006C8.70921 10.5006 10.5001 8.70961 10.5001 6.50029C10.5001 4.29098 8.70921 2.5 6.50006 2.5Z' fill='%23C1C1C1'/%3e%3c/svg%3e ")
+    no-repeat center left 13px;
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 10px;
+  box-shadow: none;
+}
+::placeholder {
+  color: #c1c1c1;
+}
