@@ -1,5 +1,8 @@
 {
   "name": "my-app",
+  "imports": {
+    "#*": "./src/*"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,5 +37,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/react": "^18.2.58",
+    "@types/react-dom": "^18.2.19",
+    "css-loader": "^6.10.0",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "typescript-plugin-css-modules": "^5.1.0"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

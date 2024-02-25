@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { LanguageItem } from "../TS/Dropdown.types";
 import Arrow from "../../img/arrow.svg";
 import Cross from "../../img/cross.svg";
 import Russia from "../../img/Russia.svg";
@@ -9,15 +9,16 @@ import Italy from "../../img/Italy.svg";
 import Poland from "../../img/Poland.svg";
 import Spain from "../../img/Spain.svg";
 import LangSelect from "../LangSelect/LangSelect";
-import styles from "./Header.module.css";
-/* import "./Header.css"; */
+import styles from "./Dropdown.module.css";
 
-export default function Header() {
-  const [langOpen, setLangOpen] = useState(true);
-  const [selectedLanguages, setSelectedLanguages] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
+const Dropdown: React.FC = () => {
+  const [langOpen, setLangOpen] = useState<boolean>(true);
+  const [selectedLanguages, setSelectedLanguages] = useState<LanguageItem[]>(
+    []
+  );
+  const [searchInput, setSearchInput] = useState<string>("");
 
-  const items = [
+  const items: LanguageItem[] = [
     { label: "Русский", flag: Russia, value: "russian" },
     { label: "Английский", flag: England, value: "english" },
     { label: "Испанский", flag: Spain, value: "spanish" },
@@ -26,28 +27,21 @@ export default function Header() {
     { label: "Польский", flag: Poland, value: "polish" },
   ];
 
-  const handleLanguageChange = (language) => {
-    if (selectedLanguages.includes(language)) {
-      setSelectedLanguages(
-        selectedLanguages.filter((item) => item !== language)
-      );
-    } else {
-      setSelectedLanguages([...selectedLanguages, language]);
-    }
+  const handleLanguageChange = (language: LanguageItem) => {
+    selectedLanguages.some((lang) => lang.value === language.value)
+      ? setSelectedLanguages(
+          selectedLanguages.filter((item) => item.value !== language.value)
+        )
+      : setSelectedLanguages([...selectedLanguages, language]);
   };
-  const handleRemoveLanguage = (language) => {
-    setSelectedLanguages(selectedLanguages.filter((item) => item !== language));
+
+  const handleRemoveLanguage = (language: LanguageItem) => {
+    setSelectedLanguages(
+      selectedLanguages.filter((item) => item.value !== language.value)
+    );
   };
-  const handleCheckboxToggle = (language) => {
-    if (selectedLanguages.includes(language)) {
-      setSelectedLanguages(
-        selectedLanguages.filter((item) => item !== language)
-      );
-    } else {
-      setSelectedLanguages([...selectedLanguages, language]);
-    }
-  };
-  const handleSearchChange = (event) => {
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(event.target.value);
   };
 
@@ -55,17 +49,19 @@ export default function Header() {
     <>
       <div className={styles.label}>Язык</div>
       <div className={styles.head}>
-        {selectedLanguages.map((item, index) => (
-          <div className={styles.addLang} key={index}>
-            <p className={styles.langText}>{item.label}</p>
-            <img
-              className={styles.cross}
-              src={Cross}
-              alt="cross"
-              onClick={() => handleRemoveLanguage(item)}
-            />
-          </div>
-        ))}
+        <div className={styles.wrap}>
+          {selectedLanguages.map((item, index) => (
+            <div className={styles.addLang} key={index}>
+              <p className={styles.langText}>{item.label}</p>
+              <img
+                className={styles.cross}
+                src={Cross}
+                alt="cross"
+                onClick={() => handleRemoveLanguage(item)}
+              />
+            </div>
+          ))}
+        </div>
         <img
           className={`${styles.arrow} ${langOpen ? styles.active : ""}`}
           src={Arrow}
@@ -86,10 +82,11 @@ export default function Header() {
           onLanguageChange={handleLanguageChange}
           selectedLanguages={selectedLanguages}
           onRemoveLanguage={handleRemoveLanguage}
-          onCheckboxToggle={handleCheckboxToggle}
           searchInput={searchInput}
         />
       </div>
     </>
   );
-}
+};
+
+export default Dropdown;

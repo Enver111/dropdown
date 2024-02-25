@@ -23,21 +23,24 @@
 }
 .head {
   margin: 0;
-  padding-left: 10px;
-  padding-right: 30px;
+  padding: 0 14px 0 10px;
+  display: flex;
   max-width: 390px;
-  height: 40px;
+  min-height: 40px;
   border: 1px solid #c1c1c1;
   border-radius: 10px;
   box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.1);
   background: white;
-  position: relative;
+}
+.wrap {
+  padding-top: 7px;
   display: flex;
+  width: 358px;
+  flex-wrap: wrap;
 }
 .arrow {
-  position: absolute;
-  top: 12px;
-  left: 372px;
+  display: block;
+
   cursor: pointer;
   transition: 0.5s all;
 }
@@ -49,7 +52,7 @@
   border: none;
   background-color: #f4f4f4;
   height: 24px;
-  margin: 7px 4px 9px 0px;
+  margin: 0px 4px 7px 0px;
   border-radius: 8px;
   display: flex;
   overflow: hidden;
@@ -58,7 +61,6 @@
 .addLang-remove {
   animation: fadeOut 0.3s ease-in-out;
 }
-
 .langText {
   text-align: center;
   font-size: 12px;
@@ -72,7 +74,6 @@
   margin: 8.25px 14.25px 8.25px 10.25px;
   cursor: pointer;
 }
-
 .info {
   transition: 0.5s all;
   background: white;
@@ -85,7 +86,6 @@
   transition: 0.5s all;
   opacity: 0;
 }
-
 .search {
   margin: 16px 16px 0 16px;
   width: 332px;

@@ -1,22 +1,22 @@
 import React from "react";
+import { LanguageItem, LangSelectProps } from "../TS/Dropdown.types";
 import Checkbox from "../Checkbox/Checkbox";
 import styles from "./LangSelect.module.css";
 
-export default function LangSelect({
+const LangSelect: React.FC<LangSelectProps> = ({
   items,
   selectedLanguages,
   onLanguageChange,
   onRemoveLanguage,
   searchInput,
-}) {
-  const handleCheckboxToggle = (item) => {
+}) => {
+  const handleCheckboxToggle = (item: LanguageItem) => {
     if (selectedLanguages.some((lang) => lang.value === item.value)) {
       onRemoveLanguage(item);
     } else {
       onLanguageChange(item);
     }
   };
-
   const filteredItems = items.filter((item) =>
     item.label.toLowerCase().includes(searchInput.toLowerCase())
   );
@@ -33,10 +33,11 @@ export default function LangSelect({
               (lang) => lang.value === item.value
             )}
             onChange={() => handleCheckboxToggle(item)}
-            item={item}
           />
         </div>
       ))}
     </>
   );
-}
+};
+
+export default LangSelect;
